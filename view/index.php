@@ -9,8 +9,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../../assets/fav.png" type="image/x-icon">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../assets/images/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/style.css">
     <title>Gridova ID</title>
 </head>
 
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="../../assets/logo.png" alt="Gridova Logo" width="145" height="40"
+                <img src="../assets/images/logo.png" alt="Gridova Logo" width="145" height="40"
                     class="d-inline-block align-text-top">
             </a>
 
@@ -146,8 +146,14 @@
             <!-- PRODUK -->
 
             <!-- PRODUCT CARD -->
+            <?php 
+            require_once '../controller/produkController.php';
+            $produkController = new ProdukController();
+            $products = $produkController->index();
+            foreach ($products as $product){
+            ?>
             <div class="col-6 col-md-4 col-lg-3">
-                <a href="../product/iphone_16p.html" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="product-card">
 
                         <!-- IMAGE BOX -->
@@ -156,13 +162,13 @@
                             <span class="fav-btn"><i class="bi bi-heart"></i></span>
 
                             <div class="img-zoom-container">
-                                <img src="../assets/ip16pr.jpeg" class="img-fluid product-image">
+                                <img src="../assets/images/<?= "$product[gambar] "?>" class="img-fluid product-image">
                             </div>
                         </div>
 
                         <div class="p-3">
-                            <h6 class="product-title">IPHONE 16 PRO MAX TITANIUM GOLD 512GB</h6>
-                            <p class="product-price">Rp 24.999.000</p>
+                            <h6 class="product-title"><?= "$product[nama] "?></h6>
+                            <p class="product-price"><?= "$product[harga] "?></p>
 
                             <!-- ADD TO CART BUTTON -->
                             <button class="btn btn-primary w-100 add-cart-btn">
@@ -176,36 +182,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-6 col-md-4 col-lg-3">
-                <a href="../product/p17p.html" class="text-decoration-none">
-                    <div class="product-card">
-
-                        <!-- IMAGE BOX -->
-                        <div class="image-box">
-                            <span class="badge-available">TERSEDIA</span>
-                            <span class="fav-btn"><i class="bi bi-heart"></i></span>
-
-                            <div class="img-zoom-container">
-                                <img src="../assets/ip17pr.jpeg" class="img-fluid product-image">
-                            </div>
-                        </div>
-
-                        <div class="p-3">
-                            <h6 class="product-title">IPHONE 17 PRO MAX COSMIC ORANGE 1TB</h6>
-                            <p class="product-price">Rp 30.999.000</p>
-
-                            <!-- ADD TO CART BUTTON -->
-                            <button class="btn btn-primary w-100 add-cart-btn">
-                                <i class="bi bi-cart-plus"></i> Add to Cart
-                            </button>
-                        </div>
-                        <!-- 
-                    <button class="btn btn-danger w-100 btn-sold">
-                        ✖ Habis
-                    </button> -->
-                    </div>
-                </a>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
