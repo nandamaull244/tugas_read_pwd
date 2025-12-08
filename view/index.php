@@ -43,6 +43,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../contact.html">Contact us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="create.php">Add data</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -171,9 +174,20 @@
                             <p class="product-price"><?= "$product[harga] "?></p>
 
                             <!-- ADD TO CART BUTTON -->
-                            <button class="btn btn-primary w-100 add-cart-btn">
-                                <i class="bi bi-cart-plus"></i> Add to Cart
-                            </button>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <a href="update.php?id=<?= $product['id'] ?>" class="btn btn-warning w-100">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="delete.php?id=<?= $product['id'] ?>" class="btn btn-danger w-100"
+                                        onclick="return confirm('Yakin ingin menghapus?')">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </a>
+
+                                </div>
+                            </div>
                         </div>
                         <!-- 
                     <button class="btn btn-danger w-100 btn-sold">
